@@ -500,6 +500,24 @@
 				<selected>Skin.HasSetting(backgroundvideo.global)</selected>
 				<include>button_Settings</include>
 			</control>
+			
+			
+			<!--Rotten Tomatoes-->
+			<control type="radiobutton" id="714">
+				<label>$LOCALIZE[32110]</label>
+				<onclick>Skin.ToggleSetting(rating.rt)</onclick>
+				<selected>Skin.HasSetting(rating.rt)</selected>
+				<include>button_Settings</include>
+			</control>
+			<control type="radiobutton" id="715">
+				<label>- $LOCALIZE[32111]</label>
+				<onclick>Skin.ToggleSetting(rating.specialrt)</onclick>
+				<selected>Skin.HasSetting(rating.specialrt)</selected>
+				<include>button_Settings</include>
+				<visible>Skin.HasSetting(rating.rt)</visible>
+			</control>
+			
+			
 		</control>
 		<!--OSD-->
 			<control type="grouplist" id="750">
@@ -734,13 +752,13 @@
 				<selected>Skin.HasSetting(global.kiosk)</selected>
 				<include>button_Settings</include>
 			</control>
-			<!--intro-->
+			<!--intro
 			<control type="radiobutton" id="906">
 				<label>$LOCALIZE[31058]</label>
 				<onclick>Skin.ToggleSetting(intro.enable)</onclick>
 				<selected>!Skin.HasSetting(intro.enable)</selected>
 				<include>button_Settings</include>
-			</control>
+			</control>-->
 			<!--opacity-->
 			<control type="label" id="908">
 				<label>$LOCALIZE[32024]</label>
