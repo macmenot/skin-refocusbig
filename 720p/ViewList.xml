@@ -125,6 +125,8 @@
 				<aspectratio align="right">keep</aspectratio>
 				<visible>Skin.HasSetting(watched.alternative)</visible>
 			</control>
+			
+			
 			<control type="image">
 				<posx>475</posx>
 				<posy>12</posy>
@@ -134,8 +136,34 @@
 				<colordiffuse>Color7</colordiffuse>
 				<aspectratio align="right">keep</aspectratio>
 				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
-				<visible>!Container.Content(artists)</visible>
+				<visible>!Container.Content(artists) + [!Skin.HasSetting(rating.rt) | !Container.Content(movies)]</visible>
 			</control>
+			
+			
+			<!--rotten tomatoes-->
+			<control type="image">
+				<posx>545</posx>
+				<posy>9</posy>
+				<width>30</width>
+				<height>30</height>
+				<texture background="false">rottentomatoes/$VAR[Ratings.Critics.Icon].png</texture>
+				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>Container.Content(movies) + Skin.HasSetting(rating.rt) + !IsEmpty(Listitem.Genre)</visible>
+			</control>
+			<control type="label">
+				<posx>580</posx>
+				<posy>9</posy>
+				<width>67</width>
+				<height>30</height>
+				<aligny>center</aligny>
+				<label>$VAR[Ratings.Critics.Percentage]%</label>
+				<font>date</font>
+				<visible>Container.Content(movies) + Skin.HasSetting(rating.rt) + !IsEmpty(Listitem.Genre)</visible>
+				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
+			</control>
+			
+			
 		</itemlayout>
 		<focusedlayout condition="[[Container.Content(movies) | Container.Content(tvshows) | [Container.Content(seasons) + !SubString(Container.FolderPath,plugin://)] | Container.Content(episodes) | Container.Content(musicvideos)]] | Container.Content(addons) | [Container.Content(files) + !SubString(Container.FolderPath,plugin://)] | SubString(Container.FolderName,$LOCALIZE[575])" width="625" height="67">
 			<control type="image">
@@ -188,6 +216,8 @@
 				<aspectratio align="right">keep</aspectratio>
 				<visible>Skin.HasSetting(watched.alternative)</visible>
 			</control>
+			
+			
 			<control type="image">
 				<posx>475</posx>
 				<posy>12</posy>
@@ -196,8 +226,33 @@
 				<texture>$VAR[global_Rating.Condition]</texture>
 				<colordiffuse>Color7</colordiffuse>
 				<aspectratio align="right">keep</aspectratio>
-				<visible>!Container.Content(artists)</visible>
+				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
+				<visible>!Container.Content(artists) + [!Skin.HasSetting(rating.rt) | !Container.Content(movies)]</visible>
 			</control>
+			
+			
+			<!--rotten tomatoes-->
+			<control type="image">
+				<posx>545</posx>
+				<posy>9</posy>
+				<width>30</width>
+				<height>30</height>
+				<texture background="false">rottentomatoes/$VAR[Ratings.Critics.Icon].png</texture>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>Container.Content(movies) + Skin.HasSetting(rating.rt) + !IsEmpty(Listitem.Genre)</visible>
+			</control>
+			<control type="label">
+				<posx>580</posx>
+				<posy>9</posy>
+				<width>67</width>
+				<height>30</height>
+				<aligny>center</aligny>
+				<label>$VAR[Ratings.Critics.Percentage]%</label>
+				<include>list_Label-sub-focus</include>
+				<visible>Container.Content(movies) + Skin.HasSetting(rating.rt) + !IsEmpty(Listitem.Genre)</visible>
+			</control>
+			
+			
 		</focusedlayout>
 	</include>
 	<include name="view_List_1Row">
@@ -246,8 +301,8 @@
 			</control>
 			
 			<control type="image">
-				<posx>590</posx>
-				<posy>16</posy>
+				<posx>595</posx>
+				<posy>12</posy>
 				<width>32</width>
 				<height>32</height>
 					<info>ListItem.Overlay</info>
@@ -265,8 +320,34 @@
 				<colordiffuse>Color7</colordiffuse>
 				<aspectratio align="right">keep</aspectratio>
 				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
-				<visible>!Container.Content(artists)</visible>
+				<visible>!Container.Content(artists) + [!Skin.HasSetting(rating.rt) | !Container.Content(movies)]</visible>
 			</control>
+			
+			
+			<!--rotten tomatoes-->
+			<control type="image">
+				<posx>515</posx>
+				<posy>9</posy>
+				<width>30</width>
+				<height>30</height>
+				<texture background="false">rottentomatoes/$VAR[Ratings.Critics.Icon].png</texture>
+				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>Container.Content(movies) + Skin.HasSetting(rating.rt) + !IsEmpty(Listitem.Genre)</visible>
+			</control>
+			<control type="label">
+				<posx>550</posx>
+				<posy>9</posy>
+				<width>67</width>
+				<height>30</height>
+				<aligny>center</aligny>
+				<label>$VAR[Ratings.Critics.Percentage]%</label>
+				<font>date</font>
+				<visible>Container.Content(movies) + Skin.HasSetting(rating.rt) + !IsEmpty(Listitem.Genre)</visible>
+				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
+			</control>
+			
+			
 		</itemlayout>
 		<focusedlayout condition="[[Container.Content(movies) | Container.Content(tvshows) | [Container.Content(seasons) + !SubString(Container.FolderPath,plugin://)] | Container.Content(episodes) | Container.Content(musicvideos)]] | Container.Content(addons) | [Container.Content(files) + !SubString(Container.FolderPath,plugin://)]  | SubString(Container.FolderPath,plugin.video.rtmpGUIplus" width="625" height="40">		
 			<control type="image">
@@ -295,8 +376,8 @@
 			</control>
 			
 			<control type="image">
-				<posx>590</posx>
-				<posy>16</posy>
+				<posx>595</posx>
+				<posy>12</posy>
 				<width>32</width>
 				<height>32</height>
 				
@@ -312,8 +393,32 @@
 				<texture>$VAR[global_Rating.Condition]</texture>
 				<colordiffuse>Color7</colordiffuse>
 				<aspectratio align="right">keep</aspectratio>
-				<visible>!Container.Content(artists)</visible>
+				<visible>!Container.Content(artists) + [!Skin.HasSetting(rating.rt) | !Container.Content(movies)]</visible>
 			</control>
+			
+			
+			<!--rotten tomatoes-->
+			<control type="image">
+				<posx>515</posx>
+				<posy>9</posy>
+				<width>30</width>
+				<height>30</height>
+				<texture background="false">rottentomatoes/$VAR[Ratings.Critics.Icon].png</texture>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>Container.Content(movies) + Skin.HasSetting(rating.rt) + !IsEmpty(Listitem.Genre)</visible>
+			</control>
+			<control type="label">
+				<posx>550</posx>
+				<posy>9</posy>
+				<width>67</width>
+				<height>30</height>
+				<aligny>center</aligny>
+				<label>$VAR[Ratings.Critics.Percentage]%</label>
+				<include>list_Label-sub-focus</include>
+				<visible>Container.Content(movies) + Skin.HasSetting(rating.rt) + !IsEmpty(Listitem.Genre)</visible>
+			</control>
+			
+			
 		</focusedlayout>
 	</include>
 
@@ -829,6 +934,8 @@
 					<include>overlay_Resumable</include>
 				</control>
 			</control>
+			
+			
 			<control type="image">
 				<posx>1060</posx>
 				<posy>15</posy>
@@ -837,8 +944,34 @@
 				<texture>$INFO[ListItem.StarRating,rating/nf-,]</texture>
 				<aspectratio align="right">keep</aspectratio>
 				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
-				<visible>!IsEmpty(ListItem.Title)</visible>
+				<visible>!IsEmpty(ListItem.Title) + [!Skin.HasSetting(rating.rt) | !Container.Content(movies)]</visible>
 			</control>
+			
+			
+			<!--rotten tomatoes-->
+			<control type="image">
+				<posx>1115</posx>
+				<posy>8</posy>
+				<width>30</width>
+				<height>30</height>
+				<texture background="false">rottentomatoes/$VAR[Ratings.Critics.Icon].png</texture>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>Container.Content(movies) + Skin.HasSetting(rating.rt) + !IsEmpty(Listitem.Genre)</visible>
+				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
+			</control>
+			<control type="label">
+				<posx>1150</posx>
+				<posy>8</posy>
+				<width>67</width>
+				<height>30</height>
+				<aligny>center</aligny>
+				<label>$VAR[Ratings.Critics.Percentage]%</label>
+				<font>date</font>
+				<visible>Container.Content(movies) + Skin.HasSetting(rating.rt) + !IsEmpty(Listitem.Genre)</visible>
+				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
+			</control>
+			
+			
 			<control type="image">
 				<posx>1155</posx>
 				<posy>36</posy>
@@ -905,6 +1038,8 @@
 					<include>overlay_Resumable</include>
 				</control>
 			</control>
+			
+			
 			<control type="image">
 				<posx>1060</posx>
 				<posy>15</posy>
@@ -913,8 +1048,32 @@
 				<texture>$INFO[ListItem.StarRating,rating/fo-,]</texture>
 				<colordiffuse>Color4</colordiffuse>
 				<aspectratio align="right">keep</aspectratio>
-				<visible>!IsEmpty(ListItem.Title)</visible>
+				<visible>!IsEmpty(ListItem.Title) + [!Skin.HasSetting(rating.rt) | !Container.Content(movies)]</visible>
 			</control>
+			
+			
+			<!--rotten tomatoes-->
+			<control type="image">
+				<posx>1115</posx>
+				<posy>8</posy>
+				<width>30</width>
+				<height>30</height>
+				<texture background="false">rottentomatoes/$VAR[Ratings.Critics.Icon].png</texture>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>Container.Content(movies) + Skin.HasSetting(rating.rt) + !IsEmpty(Listitem.Genre)</visible>
+			</control>
+			<control type="label">
+				<posx>1150</posx>
+				<posy>8</posy>
+				<width>67</width>
+				<height>30</height>
+				<aligny>center</aligny>
+				<label>$VAR[Ratings.Critics.Percentage]%</label>
+				<include>list_Label-sub-focus</include>
+				<visible>Container.Content(movies) + Skin.HasSetting(rating.rt) + !IsEmpty(Listitem.Genre)</visible>
+			</control>
+			
+			
 			<control type="image">
 				<posx>1155</posx>
 				<posy>36</posy>
@@ -990,6 +1149,8 @@
 					<include>overlay_Resumable</include>
 				</control>
 			</control>
+			
+			
 			<control type="image">
 				<posx>1060</posx>
 				<posy>15</posy>
@@ -998,8 +1159,34 @@
 				<texture>$INFO[ListItem.StarRating,rating/nf-,]</texture>
 				<aspectratio align="right">keep</aspectratio>
 				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
-				<visible>!IsEmpty(ListItem.Title)</visible>
+				<visible>!IsEmpty(ListItem.Title) + [!Skin.HasSetting(rating.rt) | !Container.Content(movies)]</visible>
 			</control>
+			
+			
+			<!--rotten tomatoes-->
+			<control type="image">
+				<posx>1115</posx>
+				<posy>8</posy>
+				<width>30</width>
+				<height>30</height>
+				<texture background="false">rottentomatoes/$VAR[Ratings.Critics.Icon].png</texture>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>Container.Content(movies) + Skin.HasSetting(rating.rt) + !IsEmpty(Listitem.Genre)</visible>
+				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
+			</control>
+			<control type="label">
+				<posx>1150</posx>
+				<posy>8</posy>
+				<width>67</width>
+				<height>30</height>
+				<aligny>center</aligny>
+				<label>$VAR[Ratings.Critics.Percentage]%</label>
+				<font>date</font>
+				<visible>Container.Content(movies) + Skin.HasSetting(rating.rt) + !IsEmpty(Listitem.Genre)</visible>
+				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
+			</control>
+			
+			
 			<control type="image">
 				<posx>1155</posx>
 				<posy>36</posy>
@@ -1075,6 +1262,8 @@
 					<include>overlay_Resumable</include>
 				</control>
 			</control>
+			
+			
 			<control type="image">
 				<posx>1060</posx>
 				<posy>15</posy>
@@ -1083,8 +1272,32 @@
 				<texture>$INFO[ListItem.StarRating,rating/fo-,]</texture>
 				<colordiffuse>Color4</colordiffuse>
 				<aspectratio align="right">keep</aspectratio>
-				<visible>!IsEmpty(ListItem.Title)</visible>
+				<visible>!IsEmpty(ListItem.Title) + [!Skin.HasSetting(rating.rt) | !Container.Content(movies)]</visible>
 			</control>
+			
+			
+			<!--rotten tomatoes-->
+			<control type="image">
+				<posx>1115</posx>
+				<posy>8</posy>
+				<width>30</width>
+				<height>30</height>
+				<texture background="false">rottentomatoes/$VAR[Ratings.Critics.Icon].png</texture>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>Container.Content(movies) + Skin.HasSetting(rating.rt) + !IsEmpty(Listitem.Genre)</visible>
+			</control>
+			<control type="label">
+				<posx>1150</posx>
+				<posy>8</posy>
+				<width>67</width>
+				<height>30</height>
+				<aligny>center</aligny>
+				<label>$VAR[Ratings.Critics.Percentage]%</label>
+				<include>list_Label-sub-focus</include>
+				<visible>Container.Content(movies) + Skin.HasSetting(rating.rt) + !IsEmpty(Listitem.Genre)</visible>
+			</control>
+			
+			
 			<control type="image">
 				<posx>1155</posx>
 				<posy>36</posy>
